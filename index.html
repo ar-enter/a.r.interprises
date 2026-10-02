@@ -88,58 +88,46 @@ footer h3{margin-bottom:14px;font-size:22px}
 <footer>
   <h3 data-i18n="contact"></h3>
   <div class="social">
-    <a href="tel:+919336327644" style="color:#2F7D4F"><i class="fa-solid fa-phone"></i></a>
-    <a href="https://wa.me/919336327644" target="_blank" style="color:#25D366"><i class="fa-brands fa-whatsapp"></i></a>
-    <a href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" style="color:#E1306C"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://facebook.com/YOUR_FACEBOOK" target="_blank" style="color:#1877F2"><i class="fa-brands fa-facebook"></i></a>
+    <a href="tel:+917382707699" style="color:#2F7D4F"><i class="fa-solid fa-phone"></i></a>
+    <a href="https://wa.me/917382707699" target="_blank" style="color:#25D366"><i class="fa-brands fa-whatsapp"></i></a>
+    
   </div>
   <p style="margin-top:16px;font-size:14px">© A.R. Enterprises</p>
-  <p class="text-xs text-gray-500 mt-1">Designed & Developed by: <span class="text-orange-400 font-semibold">Ashu Sahu</span></p>
 </footer>
 
  <div class="float">
-  <a href="tel:+919936947426" style="background:#2F7D4F"><i class="fa-solid fa-phone"></i></a>
-  <a href="https://wa.me/919336327644" target="_blank" style="background:#25D366"><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="tel:+917382707699" style="background:#2F7D4F"><i class="fa-solid fa-phone"></i></a>
+  <a href="https://wa.me/917382707699" target="_blank" style="background:#25D366"><i class="fa-brands fa-whatsapp"></i></a>
 </div> 
-
 <div id="modal" style="display:none">
  <div class="box">
   <button id="closeBtn">&times;</button>
-  <div class="step on" id="s1">
-    <h2 data-i18n="reg"></h2>
-    <input id="name" data-ph="ph_name">
-    <input id="mobile" data-ph="ph_mobile" inputmode="numeric" maxlength="10">
-    <select id="state"></select>
-    <input id="district" data-ph="ph_district">
-    <input id="village" data-ph="ph_village">
-    <input id="pin" data-ph="ph_pin" inputmode="numeric" maxlength="6">
-    <textarea id="addr" rows="2" data-ph="ph_addr"></textarea>
-    <label class="chk"><input type="checkbox" id="ok"><span data-i18n="consent"></span></label>
-    <button id="sendBtn" data-i18n="sendotp"></button>
-  </div> 
-  <div class="step" id="s2">
-    <h2 data-i18n="enterotp"></h2>
-    <input id="otp" data-ph="ph_otp" inputmode="numeric" maxlength="6">
-    <button id="verBtn" data-i18n="verify"></button>
-  </div>
-  <div class="step" id="s3">
-    <h2 data-i18n="takephoto"></h2>
-    <video id="vid" autoplay playsinline muted></video>
-    <canvas id="cv" style="display:none"></canvas>
-    <button id="snapBtn" data-i18n="snap"></button>
-    <button id="retakeBtn" style="display:none;background:#777" data-i18n="retake"></button>
-    <button id="subBtn" style="display:none;background:var(--green)" data-i18n="submit"></button>
-  </div>
+  <h2 data-i18n="reg"></h2>
+  <input id="name" data-ph="ph_name">
+  <input id="mobile" data-ph="ph_mobile" inputmode="numeric" maxlength="10">
+  <select id="state"></select>
+  <input id="district" data-ph="ph_district">
+  <input id="village" data-ph="ph_village">
+  <input id="pin" data-ph="ph_pin" inputmode="numeric" maxlength="6">
+  <textarea id="addr" rows="2" data-ph="ph_addr"></textarea>
+
+  <h3 data-i18n="takephoto" style="margin-top:12px;font-size:17px"></h3>
+  <video id="vid" autoplay playsinline muted style="display:none"></video>
+  <canvas id="cv" style="display:none"></canvas>
+  <button id="openCam" data-i18n="opencam"></button>
+  <button id="snapBtn" style="display:none" data-i18n="snap"></button>
+  <button id="retakeBtn" style="display:none;background:#777" data-i18n="retake"></button>
+
+  <label class="chk"><input type="checkbox" id="ok"><span data-i18n="consent"></span></label>
+  <button id="subBtn" style="background:var(--green)" data-i18n="submit"></button>
   <p id="msg"></p>
  </div>
-</div> 
-
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+</div>
+   
 <script>
-/* ===== SETTINGS ===== */
-const FIREBASE_CONFIG = { apiKey:"AIzaSyBTP0NRbXbbwDWlsRBwrxZCSh9UAxYCZvg", authDomain:"ar-enterprises-aa623.firebaseapp.com", projectId:"ar-enterprises-aa623", appId:"1:630080110916:web:54c1b165e5b99cded55711" };
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwOh_wBCHK-D2tz_IVNDkgwuXseKbcLAqp6asJKFAKOm2wqWd2naE6UkLh3ItKzqh8/exec";
+/* ==== SETTINGS ===== */
+
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxDXRYe0gJN3YCzb7RQZHoOU2j4E8e3puYDWcAMcdAFj3AfM47T9d6-cyC1jSQgt55x/exec";
 /* ==================== */
 
 const $ = id => document.getElementById(id); 
@@ -151,7 +139,8 @@ s1t:"1. What We Do",s1a:"Solar panel installation and rooftop fitting",s1b:"Wiri
 s2t:"2. Positions & Benefits",s2a:"Positions: Solar Panel Installer, Helper, Technician",s2b:"Salary: ₹15,000 per month",s2c:"Food and accommodation provided by the company",s2d:"Learn new skills and grow your career",
 s3t:"3. Benefits to the Environment",s3a:"Clean, renewable electricity and less pollution",s3b:"Lower carbon emissions",s3c:"Savings on electricity bills",s3d:"A cleaner future for the next generation",
 s4t:"4. Safety & Rules",s4a:"Helmet, safety belt and gloves are compulsory",s4b:"Training for ladder and height work",s4c:"Every worker's name, phone, address and photo are kept in company records",s4d:"A material register is maintained; items are counted at the start and end of work",
-contact:"Contact Us",login:"Login",reg:"Registration",ph_name:"Full name",ph_mobile:"Mobile number (10 digits)",ph_district:"District",ph_village:"Village / Town",ph_pin:"Pin code (6 digits)",ph_addr:"Full address (house no., landmark)",
+contact:"Contact Us",login:"Login",opencam:"Open camera",e_photo:"Please capture your photo before submitting.",e_stale:"Name or mobile was changed. Please retake the photo.",e_nm:"Enter your name and a valid 10-digit mobile number first.",
+reg:"Registration",ph_name:"Full name",ph_mobile:"Mobile number (10 digits)",ph_district:"District",ph_village:"Village / Town",ph_pin:"Pin code (6 digits)",ph_addr:"Full address (house no., landmark)",
 state:"Select state",consent:"I agree to share my information and photo.",sendotp:"Send OTP",enterotp:"Enter OTP",ph_otp:"6-digit OTP",verify:"Verify",
 takephoto:"Take your photo",snap:"Capture photo",retake:"Retake",submit:"Submit",
 e_fill:"Please fill all details correctly (name, 10-digit mobile, state, district, village, 6-digit pin, address).",e_consent:"Please give your consent.",
@@ -161,7 +150,8 @@ s1t:"1. हमारा काम क्या है",s1a:"सोलर पै�
 s2t:"2. पद और फायदे",s2a:"पद: सोलर पैनल इंस्टॉलर, हेल्पर, टेक्नीशियन",s2b:"वेतन: ₹15,000 प्रति माह",s2c:"खाना-पीना और रहने की व्यवस्था कंपनी करेगी",s2d:"काम सीखें और आगे बढ़ने के अवसर पाएं",
 s3t:"3. पर्यावरण को फायदा",s3a:"साफ और नवीकरणीय बिजली, प्रदूषण कम",s3b:"कार्बन उत्सर्जन में कमी",s3c:"बिजली बिल में बचत",s3d:"आने वाली पीढ़ी के लिए स्वच्छ भविष्य",
 s4t:"4. सुरक्षा और नियम",s4a:"हेलमेट, सेफ्टी बेल्ट और दस्ताने जरूरी",s4b:"सीढ़ी और ऊंचाई पर काम की ट्रेनिंग",s4c:"हर कर्मचारी का नाम, फोन, पता और फोटो कंपनी रिकॉर्ड में रहेगा",s4d:"सामान का रजिस्टर रखा जाता है; काम की शुरुआत और अंत में गिनती होती है",
-contact:"संपर्क करें",login:"लॉगिन",reg:"रजिस्ट्रेशन",ph_name:"पूरा नाम",ph_mobile:"मोबाइल नंबर (10 अंक)",ph_district:"जिला",ph_village:"गाँव / शहर",ph_pin:"पिन कोड (6 अंक)",ph_addr:"पूरा पता (मकान नंबर, लैंडमार्क)",
+contact:"संपर्क करें",login:"लॉगिन",opencam:"कैमरा खोलें",e_photo:"जमा करने से पहले अपनी फोटो खींचें।",e_stale:"नाम या मोबाइल बदला गया है। कृपया फोटो दोबारा लें।",e_nm:"पहले अपना नाम और सही 10 अंक का मोबाइल नंबर भरें।",
+reg:"रजिस्ट्रेशन",ph_name:"पूरा नाम",ph_mobile:"मोबाइल नंबर (10 अंक)",ph_district:"जिला",ph_village:"गाँव / शहर",ph_pin:"पिन कोड (6 अंक)",ph_addr:"पूरा पता (मकान नंबर, लैंडमार्क)",
 state:"राज्य चुनें",consent:"मैं अपनी जानकारी और फोटो देने के लिए सहमत हूँ।",sendotp:"OTP भेजें",enterotp:"OTP डालें",ph_otp:"6 अंकों का OTP",verify:"वेरिफाई करें",
 takephoto:"अपनी फोटो लें",snap:"फोटो खींचें",retake:"दोबारा लें",submit:"जमा करें",
 e_fill:"कृपया सभी जानकारी सही भरें (नाम, 10 अंक मोबाइल, राज्य, जिला, गाँव, 6 अंक पिन, पता)।",e_consent:"कृपया सहमति दें।",
@@ -193,41 +183,31 @@ setInterval(() => {
 }, 3500);
 
 /* ---------- registration ---------- */
-$('loginBtn').onclick = () => { $('modal').style.display = 'flex'; };
-$('closeBtn').onclick = () => { $('modal').style.display = 'none'; if (stream) stream.getTracks().forEach(x => x.stop()); };
-if (localStorage.getItem('registered')) $('loginBtn').style.display = 'none';
+/* ---------- registration (no OTP) ---------- */
+let stream, photo, shotName, shotMobile;
 const msg = x => $('msg').textContent = x || '';
-const show = n => { document.querySelectorAll('.step').forEach(s => s.classList.remove('on')); $('s'+n).classList.add('on'); msg(); };
-
-firebase.initializeApp(FIREBASE_CONFIG);
-const auth = firebase.auth();
-let verifier, confirmation, stream, photo;
 const val = id => $(id).value.trim();
+const stopCam = () => { if (stream) { stream.getTracks().forEach(x => x.stop()); stream = null; } };
 
-$('sendBtn').onclick = async () => {
-  if (val('name').length < 2 || !/^[6-9]\d{9}$/.test(val('mobile')) || !val('state') || val('district').length < 2 ||
-      val('village').length < 2 || !/^\d{6}$/.test(val('pin')) || val('addr').length < 5) return msg(t('e_fill'));
-  if (!$('ok').checked) return msg(t('e_consent'));
-  $('sendBtn').disabled = true; msg(t('sending'));
-  try {
-    auth.languageCode = lang;
-    if (!verifier) verifier = new firebase.auth.RecaptchaVerifier('sendBtn', {size:'invisible'});
-    confirmation = await auth.signInWithPhoneNumber('+91' + val('mobile'), verifier);
-    show(2);
-  } catch (e) { msg(t('e_otp') + e.message); try{verifier.clear();verifier=null}catch(_){} }
-  $('sendBtn').disabled = false;
-};
+$('loginBtn').onclick = () => { $('modal').style.display = 'flex'; };
+$('closeBtn').onclick = () => { $('modal').style.display = 'none'; stopCam(); };
+if (localStorage.getItem('registered')) $('loginBtn').style.display = 'none';
 
-$('verBtn').onclick = async () => {
+async function startCam() {
   try {
-    await confirmation.confirm(val('otp'));
-    show(3);
+    stopCam();
     stream = await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}, audio:false});
     $('vid').srcObject = stream;
-  } catch (e) { msg(e.name === 'NotAllowedError' ? t('e_cam') : t('e_ver')); }
-};
+    $('vid').style.display = 'block'; $('cv').style.display = 'none';
+    $('openCam').style.display = 'none'; $('snapBtn').style.display = 'block'; $('retakeBtn').style.display = 'none';
+    photo = null; msg();
+  } catch (e) { msg(t('e_cam')); }
+}
+$('openCam').onclick = startCam;
+$('retakeBtn').onclick = startCam;
 
 $('snapBtn').onclick = () => {
+  if (val('name').length < 2 || !/^[6-9]\d{9}$/.test(val('mobile'))) return msg(t('e_nm'));
   const v = $('vid'), c = $('cv'), w = v.videoWidth, h = v.videoHeight, bar = Math.round(h * 0.14);
   c.width = w; c.height = h + bar;
   const x = c.getContext('2d');
@@ -237,16 +217,19 @@ $('snapBtn').onclick = () => {
   x.fillText(val('name'), 12, h + bar*0.42);
   x.fillText('Mobile: ' + val('mobile'), 12, h + bar*0.82);
   photo = c.toDataURL('image/jpeg', 0.8);
+  shotName = val('name'); shotMobile = val('mobile');
+  stopCam();
   v.style.display = 'none'; c.style.display = 'block';
-  $('snapBtn').style.display = 'none'; $('retakeBtn').style.display = $('subBtn').style.display = 'block';
-};
-
-$('retakeBtn').onclick = () => {
-  $('vid').style.display = 'block'; $('cv').style.display = 'none';
-  $('snapBtn').style.display = 'block'; $('retakeBtn').style.display = $('subBtn').style.display = 'none';
+  $('snapBtn').style.display = 'none'; $('retakeBtn').style.display = 'block';
+  msg();
 };
 
 $('subBtn').onclick = async () => {
+  if (val('name').length < 2 || !/^[6-9]\d{9}$/.test(val('mobile')) || !val('state') || val('district').length < 2 ||
+      val('village').length < 2 || !/^\d{6}$/.test(val('pin')) || val('addr').length < 5) return msg(t('e_fill'));
+  if (!$('ok').checked) return msg(t('e_consent'));
+  if (!photo) return msg(t('e_photo'));
+  if (shotName !== val('name') || shotMobile !== val('mobile')) return msg(t('e_stale'));
   $('subBtn').disabled = true; msg(t('submitting'));
   try {
     await fetch(APPS_SCRIPT_URL, {method:'POST', mode:'no-cors', body: JSON.stringify({
@@ -254,10 +237,11 @@ $('subBtn').onclick = async () => {
       village:val('village'), pin:val('pin'), address:val('addr'), photo })});
     localStorage.setItem('registered', '1');
     $('loginBtn').style.display = 'none';
-    if (stream) stream.getTracks().forEach(x => x.stop());
+    stopCam();
     $('modal').style.display = 'none';
     alert(t('thanks'));
-  } catch (e) { msg(t('e_sub')); $('subBtn').disabled = false; }
+  } catch (e) { msg(t('e_sub')); }
+  $('subBtn').disabled = false;
 };
 </script>
 </body>
