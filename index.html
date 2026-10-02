@@ -44,6 +44,10 @@ footer h3{margin-bottom:14px;font-size:22px}
 .step{display:none}.step.on{display:block}
 .chk{font-size:14px;display:flex;gap:8px;align-items:flex-start;margin-top:6px}.chk input{width:auto;margin-top:4px}
 #msg{color:#c0392b;font-size:14px;min-height:20px}
+#loginBtn{background:#1877F2;color:#fff;border:0;padding:10px 20px;border-radius:8px;font-size:16px;font-weight:600;cursor:pointer;margin-left:8px}
+#loginBtn:hover{background:#0f5fd1}
+.box{position:relative}
+#closeBtn{position:absolute;top:8px;right:12px;width:auto!important;margin:0!important;padding:0 8px!important;background:none!important;color:#555!important;font-size:28px!important;line-height:1}
 </style>
 </head>
 <body>
@@ -52,6 +56,7 @@ footer h3{margin-bottom:14px;font-size:22px}
   <img src="logo.jpg" alt="Logo">
   <h1>A.R. ENTERPRISES<small data-i18n="tag"></small></h1>
   <select id="lang"><option value="en">English</option><option value="hi">हिन्दी</option></select>
+ <button id="loginBtn" data-i18n="login"></button>
 </header>
 
 <div class="carousel">
@@ -63,32 +68,33 @@ footer h3{margin-bottom:14px;font-size:22px}
 <section class="page">
   <h2 data-i18n="s1t"></h2>
   <ul><li data-i18n="s1a"></li><li data-i18n="s1b"></li><li data-i18n="s1c"></li></ul>
-  <div class="frames"><img src="ima1.jpg" alt="Work photo 1"><img src="ima2.jpg" alt="Work photo 2"><img src="ima3.jpeg" alt="Work photo 3"></div>
+  <div class="frames"><img src="ima1.jpg" alt="Work photo 1"><img src="ima2.jpg" alt="Work photo 2"><img src="ima3.jpg" alt="Work photo 3"></div>
 <section class="page">
   <h2 data-i18n="s2t"></h2>
   <ul><li data-i18n="s2a"></li><li data-i18n="s2b"></li><li data-i18n="s2c"></li><li data-i18n="s2d"></li></ul>
-  <div class="frames"><img src="ima4.jpg" alt="Work photo 4"><img src="ima5.jpg" alt="Work photo 5"><img src="ima6.jpg" alt="Work photo 6"></div>
+  <div class="frames"><img src="ima4.jpg" alt="Work photo 4"><img src="ima5.jpeg" alt="Work photo 5"><img src="ima6.jpeg" alt="Work photo 6"></div>
 </section>
 <section class="page">
   <h2 data-i18n="s3t"></h2>
   <ul><li data-i18n="s3a"></li><li data-i18n="s3b"></li><li data-i18n="s3c"></li><li data-i18n="s3d"></li></ul>
-  <div class="frames"><img src="ima7.jpg" alt="Work photo 7"><img src="ima8.jpg" alt="Work photo 8"><img src="ima9.jpeg" alt="Work photo 9"></div>
+  <div class="frames"><img src="ima7.jpeg" alt="Work photo 7"><img src="ima8.jpeg" alt="Work photo 8"><img src="ima9.jpg" alt="Work photo 9"></div>
 </section>
 <section class="page">
   <h2 data-i18n="s4t"></h2>
   <ul><li data-i18n="s4a"></li><li data-i18n="s4b"></li><li data-i18n="s4c"></li><li data-i18n="s4d"></li></ul>
-  <div class="frames"><img src="ima11.jpeg" alt="Work photo 10"><img src="ima10.jpeg" alt="Work photo 11"><img src="ima12.jpg" alt="Work photo 12"></div>
+  <div class="frames"><img src="ima11.jpg" alt="Work photo 10"><img src="ima10.jpg" alt="Work photo 11"><img src="ima12.jpg" alt="Work photo 12"></div>
 </section>
 
 <footer>
   <h3 data-i18n="contact"></h3>
   <div class="social">
-    <a href="tel:+917382707699" style="color:#2F7D4F"><i class="fa-solid fa-phone"></i></a>
-    <a href="https://wa.me/917382707699" target="_blank" style="color:#25D366"><i class="fa-brands fa-whatsapp"></i></a>
-    <!-- <a href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" style="color:#E1306C"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://facebook.com/YOUR_FACEBOOK" target="_blank" style="color:#1877F2"><i class="fa-brands fa-facebook"></i></a> -->
+    <a href="tel:+919336327644" style="color:#2F7D4F"><i class="fa-solid fa-phone"></i></a>
+    <a href="https://wa.me/919336327644" target="_blank" style="color:#25D366"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" style="color:#E1306C"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://facebook.com/YOUR_FACEBOOK" target="_blank" style="color:#1877F2"><i class="fa-brands fa-facebook"></i></a>
   </div>
   <p style="margin-top:16px;font-size:14px">© A.R. Enterprises</p>
+  <p class="text-xs text-gray-500 mt-1">Designed & Developed by: <span class="text-orange-400 font-semibold">Ashu Sahu</span></p>
 </footer>
 
  <div class="float">
@@ -98,6 +104,7 @@ footer h3{margin-bottom:14px;font-size:22px}
 
 <div id="modal" style="display:none">
  <div class="box">
+  <button id="closeBtn">&times;</button>
   <div class="step on" id="s1">
     <h2 data-i18n="reg"></h2>
     <input id="name" data-ph="ph_name">
@@ -144,7 +151,7 @@ s1t:"1. What We Do",s1a:"Solar panel installation and rooftop fitting",s1b:"Wiri
 s2t:"2. Positions & Benefits",s2a:"Positions: Solar Panel Installer, Helper, Technician",s2b:"Salary: ₹15,000 per month",s2c:"Food and accommodation provided by the company",s2d:"Learn new skills and grow your career",
 s3t:"3. Benefits to the Environment",s3a:"Clean, renewable electricity and less pollution",s3b:"Lower carbon emissions",s3c:"Savings on electricity bills",s3d:"A cleaner future for the next generation",
 s4t:"4. Safety & Rules",s4a:"Helmet, safety belt and gloves are compulsory",s4b:"Training for ladder and height work",s4c:"Every worker's name, phone, address and photo are kept in company records",s4d:"A material register is maintained; items are counted at the start and end of work",
-contact:"Contact Us",reg:"Registration",ph_name:"Full name",ph_mobile:"Mobile number (10 digits)",ph_district:"District",ph_village:"Village / Town",ph_pin:"Pin code (6 digits)",ph_addr:"Full address (house no., landmark)",
+contact:"Contact Us",login:"Login",reg:"Registration",ph_name:"Full name",ph_mobile:"Mobile number (10 digits)",ph_district:"District",ph_village:"Village / Town",ph_pin:"Pin code (6 digits)",ph_addr:"Full address (house no., landmark)",
 state:"Select state",consent:"I agree to share my information and photo.",sendotp:"Send OTP",enterotp:"Enter OTP",ph_otp:"6-digit OTP",verify:"Verify",
 takephoto:"Take your photo",snap:"Capture photo",retake:"Retake",submit:"Submit",
 e_fill:"Please fill all details correctly (name, 10-digit mobile, state, district, village, 6-digit pin, address).",e_consent:"Please give your consent.",
@@ -154,7 +161,7 @@ s1t:"1. हमारा काम क्या है",s1a:"सोलर पै�
 s2t:"2. पद और फायदे",s2a:"पद: सोलर पैनल इंस्टॉलर, हेल्पर, टेक्नीशियन",s2b:"वेतन: ₹15,000 प्रति माह",s2c:"खाना-पीना और रहने की व्यवस्था कंपनी करेगी",s2d:"काम सीखें और आगे बढ़ने के अवसर पाएं",
 s3t:"3. पर्यावरण को फायदा",s3a:"साफ और नवीकरणीय बिजली, प्रदूषण कम",s3b:"कार्बन उत्सर्जन में कमी",s3c:"बिजली बिल में बचत",s3d:"आने वाली पीढ़ी के लिए स्वच्छ भविष्य",
 s4t:"4. सुरक्षा और नियम",s4a:"हेलमेट, सेफ्टी बेल्ट और दस्ताने जरूरी",s4b:"सीढ़ी और ऊंचाई पर काम की ट्रेनिंग",s4c:"हर कर्मचारी का नाम, फोन, पता और फोटो कंपनी रिकॉर्ड में रहेगा",s4d:"सामान का रजिस्टर रखा जाता है; काम की शुरुआत और अंत में गिनती होती है",
-contact:"संपर्क करें",reg:"रजिस्ट्रेशन",ph_name:"पूरा नाम",ph_mobile:"मोबाइल नंबर (10 अंक)",ph_district:"जिला",ph_village:"गाँव / शहर",ph_pin:"पिन कोड (6 अंक)",ph_addr:"पूरा पता (मकान नंबर, लैंडमार्क)",
+contact:"संपर्क करें",login:"लॉगिन",reg:"रजिस्ट्रेशन",ph_name:"पूरा नाम",ph_mobile:"मोबाइल नंबर (10 अंक)",ph_district:"जिला",ph_village:"गाँव / शहर",ph_pin:"पिन कोड (6 अंक)",ph_addr:"पूरा पता (मकान नंबर, लैंडमार्क)",
 state:"राज्य चुनें",consent:"मैं अपनी जानकारी और फोटो देने के लिए सहमत हूँ।",sendotp:"OTP भेजें",enterotp:"OTP डालें",ph_otp:"6 अंकों का OTP",verify:"वेरिफाई करें",
 takephoto:"अपनी फोटो लें",snap:"फोटो खींचें",retake:"दोबारा लें",submit:"जमा करें",
 e_fill:"कृपया सभी जानकारी सही भरें (नाम, 10 अंक मोबाइल, राज्य, जिला, गाँव, 6 अंक पिन, पता)।",e_consent:"कृपया सहमति दें।",
@@ -177,15 +184,18 @@ applyLang();
 
 /* ---------- carousel (img/1.jpg ... img/12.jpg) ---------- */
 const track = $('track');
-for (let i = 1; i <= 12; i++) { const im = new Image(); im.src = `img/${i}.jpg`; im.alt = 'Banner ' + i; track.appendChild(im); }
-function slide(d){ track.scrollBy({left: d*320, behavior:'smooth'}); }
+const files = ['ima1.jpg','ima2.jpg','ima3.jpg','ima4.jpg','ima5.jpeg','ima6.jpeg','ima7.jpeg','ima8.jpeg','ima9.jpg','ima10.jpg','ima11.jpg','ima12.jpg'];
+files.forEach((f, i) => { const im = new Image(); im.src = f; im.alt = 'Banner ' + (i + 1); track.appendChild(im); });
+function slide(d){ track.scrollBy({left: d*360, behavior:'smooth'}); }
 setInterval(() => {
   if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) track.scrollTo({left:0, behavior:'smooth'});
   else slide(1);
 }, 3500);
 
 /* ---------- registration ---------- */
-if (!localStorage.getItem('registered')) $('modal').style.display = 'flex';
+$('loginBtn').onclick = () => { $('modal').style.display = 'flex'; };
+$('closeBtn').onclick = () => { $('modal').style.display = 'none'; if (stream) stream.getTracks().forEach(x => x.stop()); };
+if (localStorage.getItem('registered')) $('loginBtn').style.display = 'none';
 const msg = x => $('msg').textContent = x || '';
 const show = n => { document.querySelectorAll('.step').forEach(s => s.classList.remove('on')); $('s'+n).classList.add('on'); msg(); };
 
@@ -243,6 +253,7 @@ $('subBtn').onclick = async () => {
       name:val('name'), mobile:val('mobile'), state:val('state'), district:val('district'),
       village:val('village'), pin:val('pin'), address:val('addr'), photo })});
     localStorage.setItem('registered', '1');
+    $('loginBtn').style.display = 'none';
     if (stream) stream.getTracks().forEach(x => x.stop());
     $('modal').style.display = 'none';
     alert(t('thanks'));
