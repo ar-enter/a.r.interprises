@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A.R. Enterprises – Solar Energy Solutions</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--bg:#F7F5EF;--card:#FFFFFF;--text:#2B2B2B;--accent:#E8890C;--green:#2F7D4F}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);font-size:17px;line-height:1.6}
+header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 8px #0002;display:flex;align-items:center;gap:12px;padding:8px 16px}
+header img{height:52px;width:52px;object-fit:contain}
+header h1{flex:1;font-size:clamp(20px,4.5vw,34px);color:var(--green);letter-spacing:1px;line-height:1.1}
+header small{display:block;font-size:12px;color:#666;letter-spacing:0}
+#lang{padding:8px;border-radius:8px;border:1px solid #bbb;font-size:15px;background:#FBFAF6}
+.carousel{position:relative;padding:16px 0}
+.track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 16px;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.track img{flex:0 0 min(78vw,300px);height:380px;object-fit:cover;border-radius:16px;scroll-snap-align:start;background:#ddd}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:100px;border:0;background:#fff;box-shadow:0 2px 8px #0003;font-size:22px;cursor:pointer;z-index:5}
+.arrow.l{left:0;border-radius:0 12px 12px 0}.arrow.r{right:0;border-radius:12px 0 0 12px}
+section.page{max-width:1000px;margin:24px auto;padding:24px 16px;background:var(--card);border-radius:16px}
+section.page h2{color:var(--green);margin-bottom:10px;font-size:26px}
+section.page ul{padding-left:22px}
+.frames{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px}
+/* .frames div{height:170px;border-radius:12px;background:#E8EFE6 center/cover no-repeat;border:2px dashed #b9c9b5} */
+.frames img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block;background:#E8EFE6}
+footer{background:#2F5D3A;color:#fff;text-align:center;padding:32px 16px 110px}
+footer h3{margin-bottom:14px;font-size:22px}
+.social{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+.social a{width:56px;height:56px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none}
+.float{position:fixed;right:14px;bottom:16px;display:flex;flex-direction:column;gap:12px;z-index:60}
+.float a{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;text-decoration:none;box-shadow:0 3px 10px #0004}
+#modal{position:fixed;inset:0;background:#000a;z-index:100;display:flex;align-items:center;justify-content:center;padding:12px}
+.box{background:#fff;border-radius:16px;padding:22px;width:100%;max-width:420px;max-height:95vh;overflow:auto}
+.box h2{color:var(--green);margin-bottom:10px;font-size:22px}
+.box input,.box textarea,.box select{width:100%;padding:11px;margin:6px 0;border:1px solid #bbb;border-radius:8px;font-size:16px;background:#FBFAF6}
+.box button{width:100%;padding:12px;margin-top:8px;border:0;border-radius:8px;background:var(--accent);color:#fff;font-size:17px;cursor:pointer}
+.box button:disabled{opacity:.6}
+.box video,.box canvas{width:100%;border-radius:10px;background:#000;transform:scaleX(-1)}
+.box canvas{transform:none}
+.step{display:none}.step.on{display:block}
+.chk{font-size:14px;display:flex;gap:8px;align-items:flex-start;margin-top:6px}.chk input{width:auto;margin-top:4px}
+#msg{color:#c0392b;font-size:14px;min-height:20px}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.jpg" alt="Logo">
+  <h1>A.R. ENTERPRISES<small data-i18n="tag"></small></h1>
+  <select id="lang"><option value="en">English</option><option value="hi">हिन्दी</option></select>
+</header>
+
+<div class="carousel">
+  <button class="arrow l" onclick="slide(-1)">&#10094;</button>
+  <div class="track" id="track"></div>
+  <button class="arrow r" onclick="slide(1)">&#10095;</button>
+</div>
+
+<section class="page">
+  <h2 data-i18n="s1t"></h2>
+  <ul><li data-i18n="s1a"></li><li data-i18n="s1b"></li><li data-i18n="s1c"></li></ul>
+  <div class="frames"><img src="ima1.jpg" alt="Work photo 1"><img src="ima2.jpg" alt="Work photo 2"><img src="ima3.jpeg" alt="Work photo 3"></div>
+<section class="page">
+  <h2 data-i18n="s2t"></h2>
+  <ul><li data-i18n="s2a"></li><li data-i18n="s2b"></li><li data-i18n="s2c"></li><li data-i18n="s2d"></li></ul>
+  <div class="frames"><img src="ima4.jpg" alt="Work photo 4"><img src="ima5.jpg" alt="Work photo 5"><img src="ima6.jpg" alt="Work photo 6"></div>
+</section>
+<section class="page">
+  <h2 data-i18n="s3t"></h2>
+  <ul><li data-i18n="s3a"></li><li data-i18n="s3b"></li><li data-i18n="s3c"></li><li data-i18n="s3d"></li></ul>
+  <div class="frames"><img src="ima7.jpg" alt="Work photo 7"><img src="ima8.jpg" alt="Work photo 8"><img src="ima9.jpeg" alt="Work photo 9"></div>
+</section>
+<section class="page">
+  <h2 data-i18n="s4t"></h2>
+  <ul><li data-i18n="s4a"></li><li data-i18n="s4b"></li><li data-i18n="s4c"></li><li data-i18n="s4d"></li></ul>
+  <div class="frames"><img src="ima11.jpeg" alt="Work photo 10"><img src="ima10.jpeg" alt="Work photo 11"><img src="ima12.jpg" alt="Work photo 12"></div>
+</section>
+
+<footer>
+  <h3 data-i18n="contact"></h3>
+  <div class="social">
+    <a href="tel:+917382707699" style="color:#2F7D4F"><i class="fa-solid fa-phone"></i></a>
+    <a href="https://wa.me/917382707699" target="_blank" style="color:#25D366"><i class="fa-brands fa-whatsapp"></i></a>
+    <!-- <a href="https://instagram.com/YOUR_INSTAGRAM" target="_blank" style="color:#E1306C"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://facebook.com/YOUR_FACEBOOK" target="_blank" style="color:#1877F2"><i class="fa-brands fa-facebook"></i></a> -->
+  </div>
+  <p style="margin-top:16px;font-size:14px">© A.R. Enterprises</p>
+</footer>
+
+ <div class="float">
+  <a href="tel:+919936947426" style="background:#2F7D4F"><i class="fa-solid fa-phone"></i></a>
+  <a href="https://wa.me/919336327644" target="_blank" style="background:#25D366"><i class="fa-brands fa-whatsapp"></i></a>
+</div> 
+
+<div id="modal" style="display:none">
+ <div class="box">
+  <div class="step on" id="s1">
+    <h2 data-i18n="reg"></h2>
+    <input id="name" data-ph="ph_name">
+    <input id="mobile" data-ph="ph_mobile" inputmode="numeric" maxlength="10">
+    <select id="state"></select>
+    <input id="district" data-ph="ph_district">
+    <input id="village" data-ph="ph_village">
+    <input id="pin" data-ph="ph_pin" inputmode="numeric" maxlength="6">
+    <textarea id="addr" rows="2" data-ph="ph_addr"></textarea>
+    <label class="chk"><input type="checkbox" id="ok"><span data-i18n="consent"></span></label>
+    <button id="sendBtn" data-i18n="sendotp"></button>
+  </div> 
+  <div class="step" id="s2">
+    <h2 data-i18n="enterotp"></h2>
+    <input id="otp" data-ph="ph_otp" inputmode="numeric" maxlength="6">
+    <button id="verBtn" data-i18n="verify"></button>
+  </div>
+  <div class="step" id="s3">
+    <h2 data-i18n="takephoto"></h2>
+    <video id="vid" autoplay playsinline muted></video>
+    <canvas id="cv" style="display:none"></canvas>
+    <button id="snapBtn" data-i18n="snap"></button>
+    <button id="retakeBtn" style="display:none;background:#777" data-i18n="retake"></button>
+    <button id="subBtn" style="display:none;background:var(--green)" data-i18n="submit"></button>
+  </div>
+  <p id="msg"></p>
+ </div>
+</div> 
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script>
+/* ===== SETTINGS ===== */
+const FIREBASE_CONFIG = { apiKey:"AIzaSyBTP0NRbXbbwDWlsRBwrxZCSh9UAxYCZvg", authDomain:"ar-enterprises-aa623.firebaseapp.com", projectId:"ar-enterprises-aa623", appId:"1:630080110916:web:54c1b165e5b99cded55711" };
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwOh_wBCHK-D2tz_IVNDkgwuXseKbcLAqp6asJKFAKOm2wqWd2naE6UkLh3ItKzqh8/exec";
+/* ==================== */
+
+const $ = id => document.getElementById(id); 
+
+/* ---------- translations ---------- */
+const T = {
+en:{tag:"Solar Energy Solutions – Every Home Solar, Bright Future",
+s1t:"1. What We Do",s1a:"Solar panel installation and rooftop fitting",s1b:"Wiring, inverter and battery connection",s1c:"Solar system service for homes and shops",
+s2t:"2. Positions & Benefits",s2a:"Positions: Solar Panel Installer, Helper, Technician",s2b:"Salary: ₹15,000 per month",s2c:"Food and accommodation provided by the company",s2d:"Learn new skills and grow your career",
+s3t:"3. Benefits to the Environment",s3a:"Clean, renewable electricity and less pollution",s3b:"Lower carbon emissions",s3c:"Savings on electricity bills",s3d:"A cleaner future for the next generation",
+s4t:"4. Safety & Rules",s4a:"Helmet, safety belt and gloves are compulsory",s4b:"Training for ladder and height work",s4c:"Every worker's name, phone, address and photo are kept in company records",s4d:"A material register is maintained; items are counted at the start and end of work",
+contact:"Contact Us",reg:"Registration",ph_name:"Full name",ph_mobile:"Mobile number (10 digits)",ph_district:"District",ph_village:"Village / Town",ph_pin:"Pin code (6 digits)",ph_addr:"Full address (house no., landmark)",
+state:"Select state",consent:"I agree to share my information and photo.",sendotp:"Send OTP",enterotp:"Enter OTP",ph_otp:"6-digit OTP",verify:"Verify",
+takephoto:"Take your photo",snap:"Capture photo",retake:"Retake",submit:"Submit",
+e_fill:"Please fill all details correctly (name, 10-digit mobile, state, district, village, 6-digit pin, address).",e_consent:"Please give your consent.",
+sending:"Sending OTP...",e_otp:"Could not send OTP: ",e_ver:"Wrong OTP or error. Try again.",e_cam:"Please allow camera access.",submitting:"Submitting...",e_sub:"Could not submit. Try again.",thanks:"Thank you! You are registered."},
+hi:{tag:"सोलर एनर्जी सॉल्यूशंस – हर घर सोलर, उज्ज्वल भविष्य",
+s1t:"1. हमारा काम क्या है",s1a:"सोलर पैनल इंस्टॉलेशन और छत पर फिटिंग",s1b:"वायरिंग, इन्वर्टर और बैटरी कनेक्शन",s1c:"घरों और दुकानों में सोलर सिस्टम की सर्विस",
+s2t:"2. पद और फायदे",s2a:"पद: सोलर पैनल इंस्टॉलर, हेल्पर, टेक्नीशियन",s2b:"वेतन: ₹15,000 प्रति माह",s2c:"खाना-पीना और रहने की व्यवस्था कंपनी करेगी",s2d:"काम सीखें और आगे बढ़ने के अवसर पाएं",
+s3t:"3. पर्यावरण को फायदा",s3a:"साफ और नवीकरणीय बिजली, प्रदूषण कम",s3b:"कार्बन उत्सर्जन में कमी",s3c:"बिजली बिल में बचत",s3d:"आने वाली पीढ़ी के लिए स्वच्छ भविष्य",
+s4t:"4. सुरक्षा और नियम",s4a:"हेलमेट, सेफ्टी बेल्ट और दस्ताने जरूरी",s4b:"सीढ़ी और ऊंचाई पर काम की ट्रेनिंग",s4c:"हर कर्मचारी का नाम, फोन, पता और फोटो कंपनी रिकॉर्ड में रहेगा",s4d:"सामान का रजिस्टर रखा जाता है; काम की शुरुआत और अंत में गिनती होती है",
+contact:"संपर्क करें",reg:"रजिस्ट्रेशन",ph_name:"पूरा नाम",ph_mobile:"मोबाइल नंबर (10 अंक)",ph_district:"जिला",ph_village:"गाँव / शहर",ph_pin:"पिन कोड (6 अंक)",ph_addr:"पूरा पता (मकान नंबर, लैंडमार्क)",
+state:"राज्य चुनें",consent:"मैं अपनी जानकारी और फोटो देने के लिए सहमत हूँ।",sendotp:"OTP भेजें",enterotp:"OTP डालें",ph_otp:"6 अंकों का OTP",verify:"वेरिफाई करें",
+takephoto:"अपनी फोटो लें",snap:"फोटो खींचें",retake:"दोबारा लें",submit:"जमा करें",
+e_fill:"कृपया सभी जानकारी सही भरें (नाम, 10 अंक मोबाइल, राज्य, जिला, गाँव, 6 अंक पिन, पता)।",e_consent:"कृपया सहमति दें।",
+sending:"OTP भेजा जा रहा है...",e_otp:"OTP नहीं भेज सका: ",e_ver:"गलत OTP या त्रुटि। दोबारा कोशिश करें।",e_cam:"कैमरा की अनुमति दें।",submitting:"जमा हो रहा है...",e_sub:"जमा नहीं हुआ, दोबारा कोशिश करें।",thanks:"धन्यवाद! आपका रजिस्ट्रेशन हो गया।"}
+};
+const STATES = ["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli and Daman and Diu","Delhi","Jammu and Kashmir","Ladakh","Lakshadweep","Puducherry"];
+
+let lang = localStorage.getItem('lang') || 'en';
+const t = k => T[lang][k];
+function applyLang(){
+  document.documentElement.lang = lang; $('lang').value = lang;
+  document.querySelectorAll('[data-i18n]').forEach(e => e.textContent = t(e.dataset.i18n));
+  document.querySelectorAll('[data-ph]').forEach(e => e.placeholder = t(e.dataset.ph));
+  const sel = $('state'), cur = sel.value;
+  sel.innerHTML = `<option value="">${t('state')}</option>` + STATES.map(s => `<option>${s}</option>`).join('');
+  sel.value = cur;
+}
+$('lang').onchange = e => { lang = e.target.value; localStorage.setItem('lang', lang); applyLang(); };
+applyLang();
+
+/* ---------- carousel (img/1.jpg ... img/12.jpg) ---------- */
+const track = $('track');
+for (let i = 1; i <= 12; i++) { const im = new Image(); im.src = `img/${i}.jpg`; im.alt = 'Banner ' + i; track.appendChild(im); }
+function slide(d){ track.scrollBy({left: d*320, behavior:'smooth'}); }
+setInterval(() => {
+  if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 5) track.scrollTo({left:0, behavior:'smooth'});
+  else slide(1);
+}, 3500);
+
+/* ---------- registration ---------- */
+if (!localStorage.getItem('registered')) $('modal').style.display = 'flex';
+const msg = x => $('msg').textContent = x || '';
+const show = n => { document.querySelectorAll('.step').forEach(s => s.classList.remove('on')); $('s'+n).classList.add('on'); msg(); };
+
+firebase.initializeApp(FIREBASE_CONFIG);
+const auth = firebase.auth();
+let verifier, confirmation, stream, photo;
+const val = id => $(id).value.trim();
+
+$('sendBtn').onclick = async () => {
+  if (val('name').length < 2 || !/^[6-9]\d{9}$/.test(val('mobile')) || !val('state') || val('district').length < 2 ||
+      val('village').length < 2 || !/^\d{6}$/.test(val('pin')) || val('addr').length < 5) return msg(t('e_fill'));
+  if (!$('ok').checked) return msg(t('e_consent'));
+  $('sendBtn').disabled = true; msg(t('sending'));
+  try {
+    auth.languageCode = lang;
+    if (!verifier) verifier = new firebase.auth.RecaptchaVerifier('sendBtn', {size:'invisible'});
+    confirmation = await auth.signInWithPhoneNumber('+91' + val('mobile'), verifier);
+    show(2);
+  } catch (e) { msg(t('e_otp') + e.message); try{verifier.clear();verifier=null}catch(_){} }
+  $('sendBtn').disabled = false;
+};
+
+$('verBtn').onclick = async () => {
+  try {
+    await confirmation.confirm(val('otp'));
+    show(3);
+    stream = await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}, audio:false});
+    $('vid').srcObject = stream;
+  } catch (e) { msg(e.name === 'NotAllowedError' ? t('e_cam') : t('e_ver')); }
+};
+
+$('snapBtn').onclick = () => {
+  const v = $('vid'), c = $('cv'), w = v.videoWidth, h = v.videoHeight, bar = Math.round(h * 0.14);
+  c.width = w; c.height = h + bar;
+  const x = c.getContext('2d');
+  x.drawImage(v, 0, 0, w, h);
+  x.fillStyle = '#000'; x.fillRect(0, h, w, bar);
+  x.fillStyle = '#fff'; x.font = `bold ${Math.round(bar*0.32)}px Arial`;
+  x.fillText(val('name'), 12, h + bar*0.42);
+  x.fillText('Mobile: ' + val('mobile'), 12, h + bar*0.82);
+  photo = c.toDataURL('image/jpeg', 0.8);
+  v.style.display = 'none'; c.style.display = 'block';
+  $('snapBtn').style.display = 'none'; $('retakeBtn').style.display = $('subBtn').style.display = 'block';
+};
+
+$('retakeBtn').onclick = () => {
+  $('vid').style.display = 'block'; $('cv').style.display = 'none';
+  $('snapBtn').style.display = 'block'; $('retakeBtn').style.display = $('subBtn').style.display = 'none';
+};
+
+$('subBtn').onclick = async () => {
+  $('subBtn').disabled = true; msg(t('submitting'));
+  try {
+    await fetch(APPS_SCRIPT_URL, {method:'POST', mode:'no-cors', body: JSON.stringify({
+      name:val('name'), mobile:val('mobile'), state:val('state'), district:val('district'),
+      village:val('village'), pin:val('pin'), address:val('addr'), photo })});
+    localStorage.setItem('registered', '1');
+    if (stream) stream.getTracks().forEach(x => x.stop());
+    $('modal').style.display = 'none';
+    alert(t('thanks'));
+  } catch (e) { msg(t('e_sub')); $('subBtn').disabled = false; }
+};
+</script>
+</body>
+</html>
